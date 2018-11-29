@@ -1,6 +1,8 @@
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 
@@ -53,6 +55,16 @@ public class LoadData
 	        scanner.close();
 	        
 	        System.out.println("Database loaded.");
+	        
+	        StringBuilder output = new StringBuilder();
+	    	String sql = "SELECT * FROM Wheelz";
+	        PreparedStatement pstmt = con.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+	        output.append("price");
+	        while (rs.next()) { output.append("\n" + rs.getString("price"));
+	        }
+	        System.out.println(output);
+	        
 	    }
 	    catch (Exception e)
 	    {
