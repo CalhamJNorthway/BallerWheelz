@@ -44,6 +44,25 @@ id int,
 primary key(id)
 );
 
+
+Create table shipment(
+Sid integer,
+Cid integer,
+Name varchar(50),
+Address varchar(50),
+Primary key(sid),
+Foreign key(cid) references customer(cid),
+Foreign key(name) references warehouse(name)
+);
+
+Create table paypal(
+confimationNum integer,
+Email varchar(50),
+Password varchar (30),
+Foreign key(confimationNum) references paymentMethod(confimationNum),
+unique(email)
+);
+
 INSERT INTO Wheelz (id, name, price) VALUES(123, 'Benz', 5555);
 
 INSERT Customer VALUES (0, 'Calham Northway', 'cjnorthway@shaw.ca', '1234567890', '123456789 Dumb Street', 550000);
