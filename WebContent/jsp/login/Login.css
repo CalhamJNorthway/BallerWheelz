@@ -1,0 +1,70 @@
+
+
+.page {
+	display: flex;
+	flex: 1 1 auto;
+	height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #212121;
+	font-family: 'Roboto', sans-serif;
+}
+
+.badPaper {
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	background-color: #616161;
+	border-radius: 10px;
+}
+
+.content {
+	display: flex;
+	flex: 0 0 auto;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.inputForm {
+	display: flex;
+	flex: 0 0 auto;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.textInput {
+	margin-bottom: 5px;
+	color: #616161;
+}
+
+.formButtonsContainer {
+	display: flex;
+	flex: 0 0 auto;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.formText {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	text-align: center;
+	color: gold;
+	font-family: 'Roboto', sans-serif;
+}
+
+.button {
+	margin: 2px;
+	color: #616161;
+}
+
+.text {
+	text-align: center;
+	color: gold;
+	font-family: 'Roboto', sans-serif;
+}

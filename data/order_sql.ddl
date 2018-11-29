@@ -1,18 +1,18 @@
-Drop Table Wheelz
-Drop Table Customer
-Drop Table Warehouse
-Drop Table Shipment
-Drop Table PaymentMethod
-Drop Table CreditCard
+DROP TABLE Wheelz;
+DROP TABLE Baller;
+DROP TABLE Warehouse;
+DROP TABLE Shipment;
+DROP TABLE PaymentMethod;
+DROP TABLE CreditCard;
 
 
-CREATE TABLE Customer(
+CREATE TABLE Baller(
 id int,
 name varchar(30),
 email varchar(30),
 Password varchar(30),
 address varchar(30),
-salary int,
+PRIMARY KEY (id)
 );
 
 CREATE TABLE CreditCard(
@@ -21,49 +21,35 @@ cid int,
 cardNumber int,
 expirationDate DATE,
 securityCode int,
-Primary key (cardNumber),
---Foreign key (cid) Customer(id)
+PRIMARY KEY (cardNumber),
+FOREIGN KEY (cid) REFERENCES Baller(id)
 );
 
 CREATE TABLE Warehouse(
-Name varchar(30),
+name varchar(30),
 City varchar(30),
 Province varchar(30),
-primary key(name)
+PRIMARY PRIMARY(name)
 );
 
 CREATE TABLE Wheelz(
 id int,
 name varchar(30),
 price int,
-primary Key(id)
+imageSrc varchar(100),
+PRIMARY KEY(id)
 );
 
 CREATE TABLE PaymentMethod(
 id int,
-primary key(id)
+PRIMARY KEY(id)
 );
 
+INSERT INTO Wheelz (id, name, price, imageSrc) VALUES(123, 'Benz', 5555, '../../assets/whiteBenzCoupe.jpeg');
 
-Create table shipment(
-Sid integer,
-Cid integer,
-Name varchar(50),
-Address varchar(50),
-Primary key(sid),
-Foreign key(cid) references customer(cid),
-Foreign key(name) references warehouse(name)
-);
+INSERT INTO Wheelz (id, name, price, imageSrc) VALUES(321, 'Bugatto', 5555, '../../assets/redBugatti.jpeg');
 
-Create table paypal(
-confimationNum integer,
-Email varchar(50),
-Password varchar (30),
-Foreign key(confimationNum) references paymentMethod(confimationNum),
-unique(email)
-);
+DELETE * FROM Baller;
 
-INSERT INTO Wheelz (id, name, price) VALUES(123, 'Benz', 5555);
-
-INSERT Customer VALUES (0, 'Calham Northway', 'cjnorthway@shaw.ca', '1234567890', '123456789 Dumb Street', 550000);
- 
+INSERT INTO Baller (id, name, email, password, address, salary) 
+VALUES (0, 'Calham Northway', 'cjnorthway@shaw.ca', 'myword', '123456789 Dumb Street', 550000);
