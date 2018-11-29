@@ -1,0 +1,64 @@
+
+
+.page {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	background-color: #212121;
+	font-family: 'Roboto', sans-serif;
+}
+
+.header {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.imageContainer {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.image {
+	height: 600px;
+	width: 1000px;
+	border-radius: 10px;
+}
+
+.footer {
+	margin-top: 20px;
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginButtonContainer{
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginButtonContainer{
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.signupButtonContainer{
+	margin-top: 10px;
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.text {
+	color: gold;
+}

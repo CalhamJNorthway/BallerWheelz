@@ -1,12 +1,13 @@
-Drop Table Wheelz
-Drop Table Customer
-Drop Table Warehouse
-Drop Table Shipment
-Drop Table PaymentMethod
-Drop Table CreditCard
+DROP TABLE Wheelz;
+DROP TABLE Dude;
+DROP TABLE Baller;
+DROP TABLE Warehouse;
+DROP TABLE Shipment;
+DROP TABLE PaymentMethod;
+DROP TABLE CreditCard;
 
 
-CREATE TABLE Customer(
+CREATE TABLE Baller(
 id int,
 name varchar(30),
 email varchar(30),
@@ -44,26 +45,7 @@ id int,
 primary key(id)
 );
 
-
-Create table shipment(
-Sid integer,
-Cid integer,
-Name varchar(50),
-Address varchar(50),
-Primary key(sid),
-Foreign key(cid) references customer(cid),
-Foreign key(name) references warehouse(name)
-);
-
-Create table paypal(
-confimationNum integer,
-Email varchar(50),
-Password varchar (30),
-Foreign key(confimationNum) references paymentMethod(confimationNum),
-unique(email)
-);
-
 INSERT INTO Wheelz (id, name, price) VALUES(123, 'Benz', 5555);
 
-INSERT Customer VALUES (0, 'Calham Northway', 'cjnorthway@shaw.ca', '1234567890', '123456789 Dumb Street', 550000);
- 
+INSERT INTO Baller (id, name, email, password, address, salary) 
+VALUES (0, 'Calham Northway', 'cjnorthway@shaw.ca', 'myword', '123456789 Dumb Street', 550000);
