@@ -24,6 +24,7 @@ PRIMARY KEY (id)
 );
 
 CREATE TABLE CreditCard(
+cname varchar(30),	
 cid int,
 cardNumber int,
 expirationDate DATE,
