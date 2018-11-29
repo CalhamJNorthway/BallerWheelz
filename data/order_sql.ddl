@@ -1,46 +1,50 @@
+Drop Table Wheelz
+Drop Table Customer
+Drop Table Warehouse
+Drop Table Shipment
+Drop Table PaymentMethod
+Drop Table CreditCard
 
-Drop Table Customer;
-Drop Table Warehouse;
-Drop Table Shipment;
-Drop Table Product;
 
-
-Create Table Customer(
+CREATE TABLE Customer(
 id int,
 name varchar(30),
 email varchar(30),
 Password varchar(30),
 address varchar(30),
-paymentMethodId int,
-primary key(id),
-foreign key paymentMethodId references PaymentMethod(id)
+salary int,
 );
 
-Create Table CreditCard(
+CREATE TABLE CreditCard(
 cname varchar(30),
+cid int,
 cardNumber int,
 expirationDate DATE,
 securityCode int,
 Primary key (cardNumber),
-Foreign key (cname) Customer(name)
+--Foreign key (cid) Customer(id)
 );
 
-Create Table Warehouse(
+CREATE TABLE Warehouse(
 Name varchar(30),
 City varchar(30),
 Province varchar(30),
 primary key(name)
 );
 
-Create table Product(
+CREATE TABLE Wheelz(
 id int,
 name varchar(30),
-price currency
+price int,
 primary Key(id)
 );
 
-Create Table PaymentMethod(
+CREATE TABLE PaymentMethod(
 id int,
 primary key(id)
 );
+
+INSERT INTO Wheelz (id, name, price) VALUES(123, 'Benz', 5555);
+
+INSERT Customer VALUES (0, 'Calham Northway', 'cjnorthway@shaw.ca', '1234567890', '123456789 Dumb Street', 550000);
  
