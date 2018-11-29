@@ -29,7 +29,7 @@ String name = request.getParameter("name");
 	{			
 
 		String sql = "select name from wheelz";
-		boolean hasName = name != null && name != "";
+		boolean hasName = (name != null && name != "");
 		PreparedStatement p = null;
 		ResultSet rs = null;
 		
