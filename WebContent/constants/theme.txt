@@ -1,0 +1,4 @@
+primaryColor = #212121;
+secondaryColor = #616161;
+textColor = #FFD700;
+borderRadius = 10px;
