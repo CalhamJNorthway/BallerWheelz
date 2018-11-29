@@ -12,11 +12,14 @@
 <link rel="stylesheet" href="MainPage.css">
 </head>
 <%
-		String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_cnorthwa;";
-		String uid = "cnorthwa";
-		String pw = "50517151";
-		String sql = "SELECT * FROM Wheelz;";
-        String imgSrc = "";
+	String userId = null;
+	userId = session.getAttribute("loggedInUserId").toString();
+	String imgSrc = "";
+           
+	String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_cnorthwa;";
+	String uid = "cnorthwa";
+	String pw = "50517151";
+	String sql = "SELECT * FROM Wheelz;";
 	try ( Connection con = DriverManager.getConnection(url, uid, pw);){
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		ResultSet rst = pstmt.executeQuery();
