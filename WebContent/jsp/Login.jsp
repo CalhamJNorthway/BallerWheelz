@@ -24,7 +24,6 @@ else
 {
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 
-	out.println("<h1>Your Shopping Cart</h1>");
 	out.print("<table><tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
 	out.println("<th>Price</th><th>Subtotal</th></tr>");
 
