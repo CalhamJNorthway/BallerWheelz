@@ -10,7 +10,7 @@
 <title>Your Shopping Cart</title>
 </head>
 <body>
-// ahsdfklhlasdjkhfklhaslkdfhjklasdhf
+
 <%
 // Get the current list of products
 @SuppressWarnings({"unchecked"})
@@ -22,7 +22,6 @@ if (productList == null)
 }
 else
 {
-
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 
 	out.print("<table><tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
