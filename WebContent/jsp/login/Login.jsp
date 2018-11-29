@@ -12,20 +12,28 @@
 		<link rel="stylesheet" href="Login.css">
 	</head>
 	<body class="page">
+	<div class ="badPaper">
 		<div class="container">
 			<h1 class="text">Baller Login</h1>
-			<form class="inputForm" method="get" action="authenticate.jsp">
+			<form class="inputForm" method="get" action="Authenticate.jsp">
 				<p class="formText">Baller Email</p>
-				<input class="textInput" type="text" name="customerEmail" size="30">
+				<input class="textInput" type="text" name="email" size="30">
 				<p class="formText">Baller Password</p>
-				<input class="textInput" type="password" name="customerPassword" size="30">
+				<input class="textInput" type="password" name="pw" size="30">
 				<div class="formButtonsContainer">
 					<input class="button" type="submit" value="Submit"><input class="button" type="reset" value="Reset">
 				</div>
 			</form>
 		</div>
-		<% 
+		<%
+			// Print prior error login message if present
+			if (session.getAttribute("loginMessage") != null) {
+				out.println("<p class=\"text\">"+session.getAttribute("loginMessage")+"</p>");
+			}
 		%>
+	</div>
+	<h4 class="text">Not a Member?</h4>
+	<a class="text" href="../signup/FirstPass.jsp">Signup!</a>
 	</body>
 </html> 
 

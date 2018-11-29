@@ -61,8 +61,7 @@ public class LoadData
 	        PreparedStatement pstmt = con.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery();
 	        output.append("price");
-	        while (rs.next()) { output.append("\n" + rs.getString("price"));
-	        }
+	        while (rs.next()) { output.append("\n" + rs.getString("price")); }
 	        System.out.println(output);
 	        
 	    }
