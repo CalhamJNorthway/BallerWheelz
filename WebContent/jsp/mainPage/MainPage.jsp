@@ -66,7 +66,7 @@ String sql = "SELECT * FROM Wheelz;";
 	                }
 	                catch (SQLException ex){
 	                	out.println(ex);
-	                }	
+	                }
 	                %>
                 </div>
             </div>

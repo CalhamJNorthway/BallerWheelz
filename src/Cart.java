@@ -4,11 +4,9 @@ import object.Wheelz;
 
 public class Cart {
 	private ArrayList<Wheelz> productList;
-	private int cost;
 	
-	public Cart(ArrayList<Wheelz> productList, int cost) {
+	public Cart(ArrayList<Wheelz> productList) {
 		this.productList = productList;
-		this.cost = cost;
 	}
 
 	public ArrayList<Wheelz> getProductList() {
@@ -21,10 +19,6 @@ public class Cart {
 
 	public int getCost() {
 		return calculateCost(productList);
-	}
-
-	public void setCost(int cost) {
-		this.cost = cost;
 	}
 	
 	public void addProductToList(Wheelz car) {

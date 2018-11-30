@@ -13,9 +13,19 @@
 <%
 String selectedCarName = request.getParameter("selectedCar");
 Wheelz selectedCar = (Wheelz)session.getAttribute(selectedCarName);
+session.setAttribute("selectedCar", selectedCar);
 String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_cnorthwa;";
 String uid = "cnorthwa";
 String pw = "50517151";
+
+String confirmationText = session.getAttribute("confirmationText").toString();
+
+Cart currentCart = (Cart)session.getAttribute("cart");
+if(currentCart == null){
+	ArrayList<Wheelz> productList = new ArrayList<>();
+	currentCart = new Cart(productList);
+}
+session.setAttribute("cart", currentCart);
 %>
 <body class="page">
 		<div class="header">
@@ -53,11 +63,21 @@ String pw = "50517151";
 		            	<div class="textContainer">
 		            		<p class="detailsText">Baller Description:</p><p class="detailsText"><%=selectedCar.getDescription() %></p>
 		            	</div>
+		            	<form action="../mainPage/MainPage.jsp">
+			            	<button>
+			            		<h1 class="text">BUY THIS SHIT</h1>
+			            	</button>
+		            	</form>
 		            </div>
 	            </div>
             </div>
+            <%
+            if(confirmationText != null){
+            	out.print("<h4 class=\"text\">"+confirmationText+"</h4>");
+            	session.removeAttribute("confirmationText");
+            }
+            %>
         </div>
 	</body>
-    
 </html> 
 
