@@ -19,7 +19,7 @@ PRIMARY KEY (id)
 CREATE TABLE CreditCard(
 cname varchar(30),	
 cid int,
-cardNumber big int NOT NULL CHECK (cardNumber  BETWEEN 1000000000000000 and 9999999999999999),
+cardNumber bigint NOT NULL CHECK (cardNumber  BETWEEN 1000000000000000 and 9999999999999999),
 expirationDate varchar(5),
 securityCode int,
 PRIMARY KEY (cardNumber),
@@ -27,7 +27,7 @@ FOREIGN KEY (cid) REFERENCES Baller(id)
 );
 
 CREATE TABLE Warehouse(
-Name varchar(30),
+name varchar(30),
 City varchar(30),
 Province varchar(30),
 PRIMARY KEY(name)
@@ -46,14 +46,14 @@ PRIMARY KEY(id)
 );
 
 
-CREATE TABLE shipment(
-Sid integer,
-Cid integer,
-Name varchar(50),
-Address varchar(50),
+CREATE TABLE Shipment(
+sid int,
+cid int,
+name varchar(30),
+address varchar(30),
 PRIMARY KEY(sid),
-FOREIGN KEY(cid) REFERENCES customer(cid),
-FOREIGN KEY(name) REFERENCES warehouse(name)
+FOREIGN KEY(cid) REFERENCES Baller(id),
+FOREIGN KEY(name) REFERENCES Warehouse(name)
 );
 
 
@@ -91,4 +91,4 @@ DELETE * FROM Baller;
 INSERT INTO Baller (id, name, email, password, address) 
 VALUES (0, 'Calham Northway', 'cjnorthway@shaw.ca', 'myword', '123456789 Dumb Street');
 
-INSERT INTO Warehouse (name, city, Province) VALUES ('The Baller House', 'Kelowna', 'British Columbia');
+INSERT INTO Warehouse (name, city, Province) VALUES ('TheBallerHouse', 'Kelowna', 'BritishColumbia');

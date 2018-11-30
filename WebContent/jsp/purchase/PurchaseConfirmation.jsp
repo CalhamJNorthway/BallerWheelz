@@ -35,20 +35,7 @@ Cart currentCart = (Cart)session.getAttribute("cart");
         <div class="content">
             <div class="storePaper">
 	           <div>
-		           	<h1 class="text">Baller Login</h1>
-					<form class="inputForm" method="get" action="AuthenticatePurchase.jsp">
-						<p class="formText">Name On Card</p>
-						<input class="textInput" type="text" name="cardName" size="16">
-						<p class="formText">Credit Card Number</p>
-						<input class="textInput" type="text" name="ccNumber" size="16">
-						<p class="formText">Expiry Date (mm/yy)</p>
-						<input class="textInput" type="text" name="expiryDate" size="5">
-						<p class="formText">Security Code</p>
-						<input class="textInput" type="text" name="cvv" size="3">
-						<div class="formButtonsContainer">
-							<input class="button" type="submit" value="Submit"><input class="button" type="reset" value="Reset">
-						</div>
-					</form>
+		           	<h1 class="text">Congrats On Your Purchase You Baller!!!!</h1>
 	           </div>
             </div>
         </div>
