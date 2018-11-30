@@ -71,7 +71,6 @@
 .storePaper {
 	display: flex;
 	flex: 1 1 auto;
-	justify-content: center;
 	align-content: center;
 	background-color: #616161;
 	border-radius: 10px;
@@ -85,47 +84,37 @@
 	flex-direction: row;
 }
 
-.storeItem {
+.details {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+	flex-direction: column;
 	flex: 0 0 auto;
 	margin: 10px;
 }
 
+.storeItem {
+	display: flex;
+	align-items: flex-start;
+	flex: 0 0 auto;
+	margin: 10px;
+	max-width: 800px;
+}
+
 .previewImage{
-	width: 200px;
-	height: 175px;
+	width: 500px;
 	border-radius:10px;
 	margin-right: 5px;
 }
 
-.textInput {
-	color: #616161;
-	border-radius: 10px;
-}
 
-.formButtonsContainer {
-	display: flex;
-	flex: 0 0 auto;
-	justify-content: center;
-	align-items: center;
-	flex-direction: row;
-}
-
-.formText {
-	margin-top: 10px;
-	margin-bottom: 5px;
-	text-align: center;
+.detailsText {
+	text-align: left;
 	color: gold;
 	font-family: 'Roboto', sans-serif;
 }
-
-.button {
+.textContainer {
 	display: flex;
-	flex: 0 0 auto;
-	color: #616161;
-	margin-left: 5px;
-	border-radius: 10px;
+	flex-direction: row;
 }
 
 .text {
