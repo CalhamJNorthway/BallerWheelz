@@ -18,7 +18,10 @@ String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_cnorthwa;";
 String uid = "cnorthwa";
 String pw = "50517151";
 
-String confirmationText = session.getAttribute("confirmationText").toString();
+String confirmationText = null;
+if(session.getAttribute("confirmationText") != null){
+	confirmationText = session.getAttribute("confirmationText").toString();
+}
 
 Cart currentCart = (Cart)session.getAttribute("cart");
 if(currentCart == null){
@@ -63,11 +66,9 @@ session.setAttribute("cart", currentCart);
 		            	<div class="textContainer">
 		            		<p class="detailsText">Baller Description:</p><p class="detailsText"><%=selectedCar.getDescription() %></p>
 		            	</div>
-		            	<form action="../mainPage/MainPage.jsp">
-			            	<button>
-			            		<h1 class="text">BUY THIS SHIT</h1>
-			            	</button>
-		            	</form>
+		            	<button onClick=<%=response.sendRedirect("AddToCart.jsp")%>>
+		            		<h1 class="text">BUY THIS SHIT</h1>
+		            	</button>
 		            </div>
 	            </div>
             </div>
