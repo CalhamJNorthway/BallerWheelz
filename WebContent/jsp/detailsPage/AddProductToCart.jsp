@@ -11,7 +11,6 @@ if(currentCart == null){
 }
 
 currentCart.addProductToList(selectedCar);
-session.removeAttribute("selectedCar");
 
 session.setAttribute("cart", currentCart);
 session.setAttribute("confirmationText", "This Baller set of Wheelz has been added to your cart!");

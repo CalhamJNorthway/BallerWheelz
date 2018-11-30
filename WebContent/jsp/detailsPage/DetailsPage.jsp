@@ -11,8 +11,14 @@
 <link rel="stylesheet" href="DetailsPage.css">
 </head>
 <%
-String selectedCarName = request.getParameter("selectedCar");
-Wheelz selectedCar = (Wheelz)session.getAttribute(selectedCarName);
+Wheelz selectedCar = (Wheelz)session.getAttribute("selectedCar");
+
+if(selectedCar == null){
+	String selectedCarName = request.getParameter("selectedCar");
+	selectedCar = (Wheelz)session.getAttribute(selectedCarName);
+	session.removeAttribute("confirmationText");
+}
+
 session.setAttribute("selectedCar", selectedCar);
 String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_cnorthwa;";
 String uid = "cnorthwa";
@@ -49,7 +55,7 @@ session.setAttribute("cart", currentCart);
 			<div class="mainOptions">
                 <a class="text" href="../../LandingPage.html">Sign-out</a>
                 <a class="text" href="../../LandingPage.html">Contact Us</a>
-                <a class="text" href="../../LandingPage.html">Shopping Cart</a>
+                <a class="text" href="../checkout.jsp/Checkout.jsp">Shopping Cart</a>
 			</div>
 		</div>
         <div class="content">
@@ -66,9 +72,11 @@ session.setAttribute("cart", currentCart);
 		            	<div class="textContainer">
 		            		<p class="detailsText">Baller Description:</p><p class="detailsText"><%=selectedCar.getDescription() %></p>
 		            	</div>
-		            	<button onClick=<%=response.sendRedirect("AddToCart.jsp")%>>
-		            		<h1 class="text">BUY THIS SHIT</h1>
-		            	</button>
+		            	<form action="AddProductToCart.jsp">
+			            	<button>
+			            		<h1 class="text">BUY THIS SHIT</h1>
+			            	</button>
+		            	</form>
 		            </div>
 	            </div>
             </div>
@@ -76,6 +84,7 @@ session.setAttribute("cart", currentCart);
             if(confirmationText != null){
             	out.print("<h4 class=\"text\">"+confirmationText+"</h4>");
             	session.removeAttribute("confirmationText");
+            	session.removeAttribute("selectedCar");
             }
             %>
         </div>

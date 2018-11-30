@@ -37,7 +37,7 @@ String sql = "SELECT * FROM Wheelz;";
 			<div class="mainOptions">
                 <a class="text" href="../../LandingPage.html">Sign-out</a>
                 <a class="text" href="../../LandingPage.html">Contact Us</a>
-                <a class="text" href="../../LandingPage.html">Shopping Cart</a>
+                <a class="text" href="../checkout.jsp/Checkout.jsp">Shopping Cart</a>
 			</div>
 		</div>
         <div class="content">
