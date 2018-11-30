@@ -17,16 +17,6 @@ String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_cnorthwa;";
 String uid = "cnorthwa";
 String pw = "50517151";
 String sql = "SELECT * FROM Wheelz;";
-ResultSet wheelzList = null;
-try ( Connection con = DriverManager.getConnection(url, uid, pw);){
-	PreparedStatement pstmt = con.prepareStatement(sql);
-	ResultSet rst = pstmt.executeQuery();
-	wheelzList = rst;
-	
-}
-catch (SQLException ex){
-	out.println(ex);
-}	
 %>
 <body class="page">
 		<div class="header">
@@ -52,23 +42,33 @@ catch (SQLException ex){
 		</div>
         <div class="content">
             <div class="storePaper">
-                <%
-                if(wheelzList != null) {
-	                while (wheelzList.next()) {  
-	                	try {
-	                	Wheelz ballerWheelz = new Wheelz(wheelzList.getInt("id"), wheelzList.getString("name"), wheelzList.getInt("price"), wheelzList.getString("imageSrc"));
-	                	out.print("<div class=\"storeItem\">");
-	                    out.print("<img class=\"previewImage\" src=\"" + ballerWheelz.getImageSrc() + "\">");
-	                    out.print("<div class=\"shortDetails\">");
-	                        out.print("<p class=\"text\">"+ ballerWheelz.getName() +"</p>");
-	                    out.print("</div>");
-	                	out.print("</div>");
-	                	} catch (Exception e){
-	                		out.print("Exception: " + e);
+	            <div class="storeGrid">
+	                <%
+	                try ( Connection con = DriverManager.getConnection(url, uid, pw);){
+	                	PreparedStatement pstmt = con.prepareStatement(sql);
+	                	ResultSet rst = pstmt.executeQuery();
+	                	while(rst.next()) {
+	                		Wheelz car = new Wheelz(rst.getInt("id"), rst.getString("name"), rst.getInt("price"), rst.getString("imageSrc"), rst.getString("description"));
+	                		session.setAttribute(car.getName(), car);
+	                		out.print("<form class=\"mainTextForm\" method=\"get\" action=\"../detailsPage/DetailsPage.jsp\">");
+	                				out.print("<input type=\"hidden\" value=\""+car.getName()+"\" name=\"selectedCar\">");
+				                	out.print("<div class=\"storeItem\">");
+					                    out.print("<img class=\"previewImage\" src=\"" + car.getImageSrc() + "\">");
+					                    out.print("<div class=\"shortDetails\">");
+					                        out.print("<p class=\"text\">"+ car.getName() +"</p>");
+					                        out.print("<input type=\"submit\" value=\"See Details\">");
+					                    out.print("</div>");
+				                	out.print("</div>");
+			                	out.print("</button>");
+		                	out.print("</form>");
 	                	}
+	                	
 	                }
-                }
-                %>
+	                catch (SQLException ex){
+	                	out.println(ex);
+	                }	
+	                %>
+                </div>
             </div>
         </div>
 	</body>

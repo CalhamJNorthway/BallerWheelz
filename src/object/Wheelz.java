@@ -5,12 +5,14 @@ public class Wheelz {
 	private String name;
 	private int price;
 	private String imageSrc;
+	private String description;
 	
-	public Wheelz(int id, String name, int price, String imageSrc) {
+	public Wheelz(int id, String name, int price, String imageSrc, String description) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.imageSrc = imageSrc;
+		this.description = description;
 	}
 
 	public int getId() {
@@ -27,5 +29,9 @@ public class Wheelz {
 
 	public String getImageSrc() {
 		return imageSrc;
+	}
+	
+	public String getDescription() {
+		return description;
 	}
 }
