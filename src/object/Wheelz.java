@@ -1,3 +1,4 @@
+package object;
 
 public class Wheelz {
 	private int id;
@@ -27,7 +28,4 @@ public class Wheelz {
 	public String getImageSrc() {
 		return imageSrc;
 	}
-	
-	
-
 }
