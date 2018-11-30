@@ -44,6 +44,7 @@
 		if(recievedEmail != null && recievedEmail != "" && recievedPassword != null && recievedPassword != "") {
 			if(customerEmail.equals(recievedEmail) && customerPassword.equals(recievedPassword)) {
 				session.setAttribute("loggedInUser", loggedInUser);
+				session.setAttribute("userId", id);
 				response.sendRedirect("../mainPage/MainPage.jsp");
 			}else{
 				session.setAttribute("loginMessage","Could not connect to the system using that username/password.");

@@ -6,25 +6,20 @@
 	
 String cardName = request.getParameter("cardName");
 String ccNumber = request.getParameter("ccNumber");
-String expiryDate = request.getParameter("expiryDate");
-SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-String dateString = format.format( new Date() );
-String month = expiryDate.charAt(0)+""+expiryDate.charAt(1);
-String year = expiryDate.charAt(3)+""+expiryDate.charAt(4);
-Date date = format.parse ( "20"+year+"-"+month+"-01" ); 
+String expiryDate = request.getParameter("expiryDate"); 
 String securityCode = request.getParameter("cvv");
 User loggedInUser = null;
-
-if(session.getAttribute("loggedInUser") != null) {
-	loggedInUser = (User)session.getAttribute("loggedInUser");
+int id = -1;
+if(session.getAttribute("userId") != null) {
+	id = Integer.parseInt(session.getAttribute("userId").toString());
 }
 String sql = ""+
-"INSERT INTO CreditCard (cname, cid, cardNumber, expirationDate, securityCode) VALUES ("+ 
+"INSERT INTO CreditCard (cname, cid, cardNumber, expirationDate, securityCode) VALUES (\'"+ 
 cardName +
-", \'"+ loggedInUser.getId() +
+"\', \'"+ id +
 "\', \'"+ ccNumber +
-"\', \'"+ date +
-"\', \'"+ loggedInUser.getAddress()+");";
+"\', \'"+ expiryDate +
+"\',"+ securityCode+");";
 String url = "jdbc:sqlserver://sql04.ok.ubc.ca:1433;DatabaseName=db_cnorthwa;";
 String uid = "cnorthwa";
 String pw = "50517151";
