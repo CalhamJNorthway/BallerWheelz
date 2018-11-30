@@ -68,5 +68,5 @@ INSERT INTO Wheelz (id, name, price, imageSrc, description) VALUES(10, 'Bugatto'
 
 DELETE * FROM Baller;
 
-INSERT INTO Baller (id, name, email, password, address, salary) 
-VALUES (0, 'Calham Northway', 'cjnorthway@shaw.ca', 'myword', '123456789 Dumb Street', 550000);
+INSERT INTO Baller (id, name, email, password, address) 
+VALUES (0, 'Calham Northway', 'cjnorthway@shaw.ca', 'myword', '123456789 Dumb Street');

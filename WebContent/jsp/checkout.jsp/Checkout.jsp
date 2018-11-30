@@ -36,18 +36,25 @@ Cart currentCart = (Cart)session.getAttribute("cart");
             <div class="storePaper">
 	           <%
 	           if(currentCart == null || currentCart.getProductList() == null || currentCart.getProductList().get(0) == null){
-	        		out.println("<H1>No Items in Shopping Cart</H1>");
+	        		out.print("<H1 class=\"text\">No Items in Shopping Cart</H1>");
+	        		if(session.getAttribute("confirmationText") != null) {
+	        			out.print("<H1 class=\"text\">"+session.getAttribute("confirmationText").toString()+"</H1>");
+	        		}
 	        	}else{
-	        		out.println("<h1>Your Shopping Cart</h1>");
-	        		out.println("<table><tr><th>Product Name</th><th>Price</th><th>Quantity</th><th>Product Id</th></tr>");
+	        		out.print("<div class=\"yourCartTextContainer\"><h1 class=\"text\">Your Shopping Cart</h1>");
 	        		for(int i = 0; i < currentCart.getProductList().size(); i++) {	// iterates through all product ids
 		        		Wheelz car = currentCart.getProductList().get(i);		// prints all info for each product
-		        		
-		        		out.print("Car Model: " + car.getName());
-		        		out.print("Car Price: $" + car.getPrice());
-		        	 	out.println();
+		        		String listNum = "$";
+		        		for(int j = 0; j < i; j++){
+		        			listNum = listNum + "$";
+		        		}
+		        		out.print("<div class=\"product\"><p class=\"text\">"+ listNum + "    Car Model: " + car.getName() + "    ||||   </p> <p class=\"text\">Car Price: $" + car.getPrice() + "</p></div>");
 		        	}
-		        	out.println("Your Subtotal is: $" + currentCart.getCost());
+		        	out.print("<div><h4 class=\"text\">Your Subtotal is: $" + currentCart.getCost() + "</h4></div>");
+	        		out.print(""+
+	        				"<div class=\"buttonsContainer\"><a href=\"../purchase/Purchase.jsp\" class=\"bottomButton\"><h2 class=\"text\">BALL OUT</h2></a></div>" +
+       						"<div class=\"buttonsContainer\"><a href=\"ClearCart.jsp\" class=\"bottomButton\"><h4 class=\"text\">CLEAR CART</h2></a></div>");
+	        		out.print("</div>");
 	        	}
 	        	session.setAttribute("cart", currentCart);
 	           %>
